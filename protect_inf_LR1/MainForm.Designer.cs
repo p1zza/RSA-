@@ -1,6 +1,6 @@
 ﻿namespace protect_inf_LR1
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Требуется переменная конструктора.
@@ -34,16 +34,16 @@
             this.textBox_p = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_q = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.SimpleNumbers_Label = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox_q2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox_p2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.EditTXT = new System.Windows.Forms.Button();
+            this.EditInput_Button = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.SecretKey_Label = new System.Windows.Forms.Label();
             this.textBox_d = new System.Windows.Forms.TextBox();
             this.textBox_n = new System.Windows.Forms.TextBox();
             this.textBox_n2 = new System.Windows.Forms.TextBox();
@@ -114,24 +114,23 @@
             this.textBox_q.Text = "103";
             this.textBox_q.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label3
+            // SimpleNumbers_Label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(67, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Простые числа";
+            this.SimpleNumbers_Label.AutoSize = true;
+            this.SimpleNumbers_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.SimpleNumbers_Label.Location = new System.Drawing.Point(67, 9);
+            this.SimpleNumbers_Label.Name = "SimpleNumbers_Label";
+            this.SimpleNumbers_Label.Size = new System.Drawing.Size(125, 20);
+            this.SimpleNumbers_Label.TabIndex = 7;
+            this.SimpleNumbers_Label.Text = "Простые числа";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(350, 38);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "label7";
             // 
             // textBox_q2
             // 
@@ -173,15 +172,15 @@
             this.label9.TabIndex = 14;
             this.label9.Text = "p =";
             // 
-            // EditTXT
+            // EditInput_Button
             // 
-            this.EditTXT.Location = new System.Drawing.Point(303, 243);
-            this.EditTXT.Name = "EditTXT";
-            this.EditTXT.Size = new System.Drawing.Size(163, 32);
-            this.EditTXT.TabIndex = 18;
-            this.EditTXT.Text = "Изменить Input";
-            this.EditTXT.UseVisualStyleBackColor = true;
-            this.EditTXT.Click += new System.EventHandler(this.EditTXT_Click);
+            this.EditInput_Button.Location = new System.Drawing.Point(303, 243);
+            this.EditInput_Button.Name = "EditInput_Button";
+            this.EditInput_Button.Size = new System.Drawing.Size(163, 32);
+            this.EditInput_Button.TabIndex = 18;
+            this.EditInput_Button.Text = "Изменить Input.txt";
+            this.EditInput_Button.UseVisualStyleBackColor = true;
+            this.EditInput_Button.Click += new System.EventHandler(this.EditTXT_Click);
             // 
             // label4
             // 
@@ -203,15 +202,15 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "n =";
             // 
-            // label6
+            // SecretKey_Label
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(66, 153);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(136, 20);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Секретный ключ";
+            this.SecretKey_Label.AutoSize = true;
+            this.SecretKey_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.SecretKey_Label.Location = new System.Drawing.Point(66, 153);
+            this.SecretKey_Label.Name = "SecretKey_Label";
+            this.SecretKey_Label.Size = new System.Drawing.Size(136, 20);
+            this.SecretKey_Label.TabIndex = 10;
+            this.SecretKey_Label.Text = "Секретный ключ";
             // 
             // textBox_d
             // 
@@ -269,7 +268,7 @@
             this.label11.TabIndex = 19;
             this.label11.Text = "d =";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -278,7 +277,7 @@
             this.Controls.Add(this.textBox_d2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.EditTXT);
+            this.Controls.Add(this.EditInput_Button);
             this.Controls.Add(this.textBox_q2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox_p2);
@@ -286,18 +285,18 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox_n);
             this.Controls.Add(this.textBox_d);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.SecretKey_Label);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.SimpleNumbers_Label);
             this.Controls.Add(this.textBox_q);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox_p);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDecipher);
             this.Controls.Add(this.buttonEncrypt);
-            this.Name = "Form1";
-            this.Text = "RSA - vscode.ru";
+            this.Name = "MainForm";
+            this.Text = "RSA";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,16 +310,16 @@
         private System.Windows.Forms.TextBox textBox_p;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_q;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label SimpleNumbers_Label;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox_q2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox_p2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button EditTXT;
+        private System.Windows.Forms.Button EditInput_Button;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label SecretKey_Label;
         private System.Windows.Forms.TextBox textBox_d;
         private System.Windows.Forms.TextBox textBox_n;
         private System.Windows.Forms.TextBox textBox_n2;

@@ -14,7 +14,7 @@ using System.Numerics;
 
 namespace protect_inf_LR1
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         char[] characters = new char[] { '#', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И',
                                                         'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 
@@ -26,7 +26,7 @@ namespace protect_inf_LR1
 
         public long d_1;
         public long d_2;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -34,7 +34,8 @@ namespace protect_inf_LR1
         //зашифровать
         private void buttonEncrypt_Click(object sender, EventArgs e)
         {
-            if ((textBox_p.Text.Length > 0) && (textBox_q.Text.Length > 0))
+            
+            if ((!String.IsNullOrEmpty(textBox_p.Text)) && (!String.IsNullOrEmpty(textBox_q.Text)))
             {
                 long p = Convert.ToInt64(textBox_p.Text);
                 long q = Convert.ToInt64(textBox_q.Text);
@@ -46,17 +47,18 @@ namespace protect_inf_LR1
                 {
                     string s = "";
 
-                    StreamReader sr = new StreamReader("in.txt");
-
-                    while (!sr.EndOfStream)
+                    using(StreamReader sr = new StreamReader("in.txt"))
                     {
-                        s += sr.ReadLine();
+                        while (!sr.EndOfStream)
+                        {
+                            s += sr.ReadLine();
+                        }
+
+                        sr.Close();
                     }
 
-                    sr.Close();
-
                     s = s.ToUpper();
-
+        
                     long n = p * q;
                     long m = (p - 1) * (q - 1);
 
@@ -73,10 +75,15 @@ namespace protect_inf_LR1
                     List<string> result = RSA_Encode(s, e_1, n);
                     result = RSA_Encode(s, e_2, n);
 
-                    StreamWriter sw = new StreamWriter("out1.txt");
-                    foreach (string item in result)
-                        sw.WriteLine(item);
-                    sw.Close();
+                    using (StreamWriter sw = new StreamWriter("out1.txt"))
+                    {
+                        foreach (string item in result)
+                        {
+                            sw.WriteLine(item);
+                        }
+                        sw.Close();
+                    }
+                    
 
                     textBox_d.Text = d_1.ToString();
                     textBox_n.Text = n.ToString();
@@ -98,29 +105,30 @@ namespace protect_inf_LR1
         //расшифровать
         private void buttonDecipher_Click(object sender, EventArgs e)
         {
-            if ((textBox_d.Text.Length > 0) && (textBox_n.Text.Length > 0))
+            if ((!String.IsNullOrEmpty(textBox_d.Text)) && (!String.IsNullOrEmpty(textBox_n.Text)))
             {
                 long d = Convert.ToInt64(textBox_d.Text);
                 long n = Convert.ToInt64(textBox_n.Text);
 
                 List<string> input = new List<string>();
 
-                StreamReader sr = new StreamReader("out1.txt");
-
-                while (!sr.EndOfStream)
+                using (StreamReader sr = new StreamReader("out1.txt"))
                 {
-                    input.Add(sr.ReadLine());
-                }
+                    while (!sr.EndOfStream)
+                    {
+                        input.Add(sr.ReadLine());
+                    }
 
-                sr.Close();
+                    sr.Close();
+                }
 
                 string result = RSA_Decode(input, d_2, n);
                 result = RSA_Decode(input, d_1, n);
-
-                StreamWriter sw = new StreamWriter("out2.txt");
-                sw.WriteLine(result);
-                sw.Close();
-
+                using (StreamWriter sw = new StreamWriter("out2.txt"))
+                {
+                    sw.WriteLine(result);
+                    sw.Close();
+                }
                 Process.Start("out2.txt");
             }
             else
@@ -178,7 +186,6 @@ namespace protect_inf_LR1
             string result = "";
 
             BigInteger bi;
-
             foreach (string item in input)
             {
                 bi = new BigInteger(Convert.ToDouble(item));
